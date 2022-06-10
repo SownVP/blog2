@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../tailwind/build/tailwind.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Oswald:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-family: "Roboto", sans-serif;
+            color:  #fff;
+        }
+        ::selection {
+            background:#d54253; 
+        }
+        ::-moz-selection {
+            background:#d54253; 
+        }
+        ::-webkit-selection {
+            background:#d54253; 
+        }
+        .top_100-8{
+            top: calc(100% + 8px);
+        }
+        .avt ul{
+            transform-origin: top right;
+            animation: scale ease-in 0.1s;
+        }
+        .navIcon ul{
+            animation: scale ease-in 0.1s;
+            transform-origin: top right;
+        }
+        
+        .navIcon:hover ul{
+            display: flex;
+        }
+        
+        @keyframes scale{
+            0%{
+                transform: scale(0);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        .avt:hover ul{
+            display: block;
+        }
+        .avt ul::before{
+            content: "";
+            height: 8px;
+            position: absolute;
+            top: -8px;
+            left: 0;
+            right: 0;
+        }
+        .postReactWrapper::after,
+        .postContentWrapper::after,
+        .postWriter::after{
+            content: "";
+            display: block;
+            width: 100%;
+            background-color: #fff;
+            height: 0.5px;
+            opacity: 0.2;
+            margin: 16px 0;
+        }
+        .postReactWrapper::after{
+            margin-top: 8px;
+            margin-bottom: 16px;
+        }
+        .postContentWrapper::after{
+            margin: 8px 0;
+        }
+        .postInput::placeholder{
+            color: #333;
+        }
+        .commentContent,
+        .postContent{
+            display: -webkit-box;
+            -webkit-line-clamp: 8; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+
+        }
+        .commentContent{
+            -webkit-line-clamp: 4; 
+        }
+        .liked{
+            color: rgb(32, 120, 244);
+        }
+        .liked:hover{
+            color: rgb(66, 141, 246);
+        }
+        @media screen and (max-width: 1070px){
+            .nav{
+                display: none;
+            }
+            .navIcon{
+                display: block;
+            }
+        }
+        @media screen and (min-width: 741px) and (max-width: 1070px){
+            .postWriterWrapper{
+                width: 70%;
+            }
+            .postListWrapper{
+                width: 70%;
+            }
+            .textFooterCenter{
+                display: none;
+            }
+            .contentFooter{
+                justify-content: space-around;
+            }
+        }
+        @media screen and (max-width: 740px){
+            .searchIcon,
+            .socialFooter,
+            .textFooterCenter{
+                display: none;
+            }
+            .contentFooter{
+                justify-content: center;
+            }
+            .container{
+                height: 100vh;
+            }
+            .postWriterWrapper{
+                width: 100%;
+            }
+            .postListWrapper{
+                width: 100%;
+            }
+            .bodyWrapper{
+                padding: 0 8px;
+            }
+            .commentTime{
+                margin: 0;
+                display: block;
+            }
+        }
+        @media screen and (max-width: 320px){
+            .avt{
+                margin-left: 8px;
+            }
+            .logoIcon{
+                font-size: 36px;
+            }
+            .logoName{
+                font-size: 32px;
+            }
+            .navIcon{
+                font-size: 32px !important;
+            }
+            .postReact{
+                justify-content: space-between;
+            }
+        }
+        @media screen and (max-width: 280px){
+            .logoIcon{
+                font-size: 36px;
+            }
+            .logoName{
+                font-size: 26px;
+            }
+            .navIcon{
+                font-size: 24px !important;
+            }
+            .postWriterAdd{
+                font-size: 13px;
+            }
+            .postReact{
+                font-size: 14px;
+            }
+            .postInf{
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pt-[20px] pb-[80px] bg-[#13161B] mt-[96px] relative min-h-[100vh]">
+        <div class="fixed h-[96px] bg-[#1f232b] top-0 left-0 right-0 z-[999]">
+            <div class="max-w-[1092px] w-[100%] h-full flex items-center justify-between mx-auto">
+                <a href="" class="flex items-center">
+                    <i class="fa-solid fa-atom text-[40px] text-white mr-1 logoIcon"></i>
+                    <span class="font-bold text-[36px] text-white logoName">Chemiscare</span>   
+                </a>
+                <ul class="flex justify-center grow nav">
+                    <li class="">
+                        <a class="p-4 text-[18px] text-[#868991] hover:text-[#d54253]" href="">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <span class="">Diễn Đàn</span>   
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="p-4 text-[18px] text-[#868991] hover:text-[#d54253]" href="">
+                            <i class="fa-solid fa-calendar"></i>
+                            <span class="">Lịch Thi</span>   
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="p-4 text-[18px] text-[#868991] hover:text-[#d54253]" href="">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            <span class="">Thể Lệ</span>   
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="p-4 text-[18px] text-[#868991] hover:text-[#d54253]" href="">
+                            <i class="fa-solid fa-ranking-star"></i>
+                            <span class="">Xếp Hạng</span>   
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="p-4 text-[18px] text-[#868991] hover:text-[#d54253]" href="">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <span class="">Hỏi Đáp</span>   
+                        </a>
+                    </li>
+                </ul>
+                <div class="flex items-center">
+                    <i class="fa-solid fa-magnifying-glass text-[#868991] px-5 py-5 cursor-pointer hover:text-[#d54253] text-[18px] searchIcon"></i>
+                    <div class="relative navIcon hidden">
+                        <i class="fa-solid fa-bars text-[30px]  hover:text-[#d54253] text-[#868991]"></i>
+                        <ul class="justify-between grow absolute top-[100%] right-1 flex-col bg-[#3d4048] text-white rounded-[4px] hidden">
+                            <li class="w-[200px]">
+                                <a class="px-6 block py-4 boder-bot hover:text-[#d54253]" href="">
+                                    <i class="text-[18px] fa-solid fa-house"></i>
+                                    <span class="text-sm text-[16px]">Diễn Đàng</span>   
+                                </a>
+                            </li>
+                            <li class="w-[200px]">
+                                <a class="px-6 block py-4 boder-bot hover:text-[#d54253]" href="">
+                                    <i class="text-[18px] fa-solid fa-calendar"></i>
+                                    <span class="text-sm text-[16px]">Lịch Thi</span>   
+                                </a>
+                            </li>
+                            <li class="w-[200px]">
+                                <a class="px-6 block py-4 boder-bot hover:text-[#d54253]" href="">
+                                    <i class="text-[18px] fa-solid fa-scale-balanced"></i>
+                                    <span class="text-sm text-[16px]">Thể Lệ</span>   
+                                </a>
+                            </li>
+                            <li class="w-[200px]">
+                                <a class="px-6 block py-4 hover:text-[#d54253]" href="">
+                                    <i class="text-[18px] fa-solid fa-circle-question"></i>
+                                    <span class="text-sm text-[16px]">Hỏi Đáp</span>   
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <span class="cursor-pointer px-5 text-[18px] text-[#868991] hover:text-[#d54253]">Đăng nhập</span>
+                    <span class="cursor-pointer px-5 py-[10px] text-[18px] text-[#000] rounded-[9px] bg-white hover:bg-[#fafafa]">Đăng ký</span> -->
+                    <div class="text-white relative cursor-pointer w-[40px] h-[40px] ml-5 bg-[#B8BCC6] rounded-[50%] text-[22px] items-center justify-center flex hover:bg-[#D44253]  avt">
+                        <img src="https://images.unsplash.com/photo-1650902153035-ecee8f4e8bb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="w-full h-full rounded-[50%] object-cover">
+                        <span class="hidden">S</span>
+                        <ul class="absolute top_100-8 bg-[#3D4048] right-0 text-[18px] px-8 text-white py-4 font-normal rounded-[9px] hidden z-10">
+                            <li class="flex py-2 border-b-[1px] border-[#51535a] border-solid items-center">
+                                <div>
+                                    <span class="cursor-pointer w-[40px] h-[40px] bg-[#D44253] rounded-[50%] text-[22px] items-center justify-center flex font-light mr-1">
+                                        <span class="hidden">S</span>
+                                        <img src="https://images.unsplash.com/photo-1650902153035-ecee8f4e8bb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="w-full h-full rounded-[50%] object-cover">
+                                    </span>
+                                </div>
+                                <span class="leading-[20px] text-[16px]">
+                                    <span class="hover:text-[#d54253]">Trịnh Văn Sơn</span>
+                                    <span class="cursor-text text-[12px] text-[#868991] overflow-hidden block max-w-[200px] min-w-[150px]">@gmail.com</span>
+                                </span>
+                            </li>
+                            <li class="py-2 hover:text-[#d54253]">Lịch sử</li>
+                            <li class="py-2 hover:text-[#d54253] border-b-[1px] border-[#51535a] border-solid">Xếp hạng của tôi</li>
+                            <li class="py-2 hover:text-[#d54253]">Đăng xuất</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-[1092px] w-[100%] mx-auto flex flex-col items-center bodyWrapper">
+            <div class="w-[100%] text-left mb-[60px]">
+                <p class="font-[900] text-[38px]">Bài viết nổi bật</p>
+                <p>Tổng hợp các bài viết chia sẻ về kinh nghiệm tự học hóa, cảm xúc trong quá trình học.</p>
+            </div>
+            <div class="w-full flex"> 
+                <ul class="flex flex-col justify-start w-[60%]">
+                    <li class="my-[8px] w-[100%] rounded-[16px] p-[24px] border-solid border-[#2a2c34] border-[1px] bg-[#1e2029]">
+                        <div class="flex justify-between">
+                            <div class="flex items-center cursor-pointer">
+                                <div class="mr-[4px]">
+                                    <img class="w-[28px] h-[28px] object-cover rounded-[50%]" src="https://images.unsplash.com/photo-1650902153035-ecee8f4e8bb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
+                                </div>
+                                <p class="font-medium hover:text-[#d54253]">Trịnh Văn Sơn</p>
+                            </div>
+                            <div>
+                                <i class="cursor-pointer fa-regular fa-bookmark mr-[8px]"></i>
+                                <i class="cursor-pointer fa-solid fa-bookmark mr-[8px] text-[#d54253]" style="display: none;"></i>
+                                <i class="cursor-pointer fa-solid fa-ellipsis"></i>
+                            </div>
+                        </div>
+                        <div class="mt-[8px] mb-[16px]">
+                            <div>
+                                <p class="text-[20px] font-[700] hover:text-[#d54253] cursor-pointer">Cách sử dụng Routing trong ReactJS</p>
+                                <p class="mt-[4px] leading-[1.6] text-[15px] font-light">Hôm nay chúng ta sẽ cùng nhau tìm hiểu cách routing trong reactjs qua thư viện react-router-dom</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <p class="opacity-[0.9]">12 ngày trước</p>
+                            <i class="opacity-[0.9] fa-solid fa-circle text-[4px] mx-[8px]"></i>
+                            <p class="opacity-[0.9]">5 phút đọc</p>
+                        </div>
+                    </li>
+                    <li class="my-[8px] w-[100%] rounded-[16px] p-[24px] border-solid border-[#2a2c34] border-[1px] bg-[#1e2029]">
+                        <div class="flex justify-between">
+                            <div class="flex items-center">
+                                <div class="mr-[4px]">
+                                    <img class="w-[28px] h-[28px] object-cover rounded-[50%]" src="https://images.unsplash.com/photo-1650902153035-ecee8f4e8bb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
+                                </div>
+                                <p class="font-medium hover:text-[#d54253]">Trịnh Văn Sơn</p>
+                            </div>
+                            <div>
+                                <i class="cursor-pointer fa-regular fa-bookmark mr-[8px]"></i>
+                                <i class="cursor-pointer fa-solid fa-bookmark mr-[8px] text-[#d54253]" style="display: none;"></i>
+                                <i class="cursor-pointer fa-solid fa-ellipsis"></i>
+                            </div>
+                        </div>
+                        <div class="mt-[8px] mb-[16px] flex">
+                            <div class="mr-[24px]">
+                                <p class="text-[20px] font-[700] hover:text-[#d54253] cursor-pointer">Áo Polo F8 Đã Về! Trên Tay Áo Polo F8 Của F8</p>
+                                <p class="mt-[4px] leading-[1.6] text-[15px] font-light">Là thành viên F8, chúng ta luôn mong muốn được "nhận ra" ở mọi nơi. Hãy rinh cho mình áo Polo F8 ngay hôm nay nhé!</p>
+                            </div>
+                            <img class="object-cover w-[40%] rounded-[16px] cursor-pointer" src="https://files.fullstack.edu.vn/f8-prod/blog_posts/3590/628db70cc11eb.jpg" alt="">
+                        </div>
+                        <div class="flex items-center">
+                            <p class="opacity-[0.9]">12 ngày trước</p>
+                            <i class="opacity-[0.9] fa-solid fa-circle text-[4px] mx-[8px]"></i>
+                            <p class="opacity-[0.9]">5 phút đọc</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="ml-[60px] w-[40%]">
+                    <p class="mb-[12px] opacity-[0.9]">CÁC CHỦ ĐỀ ĐƯỢC ĐỀ XUẤT</p>
+                    <div class="flex flex-wrap text-[#333] mx-[-8px]">
+                        <div class="bg-[#fafafa] hover:bg-[#f2f2f2] cursor-pointer px-[10px] py-[8px] rounded-[18px] m-[6px]">Cân bằng phương trình hóa học</div>
+                        <div class="bg-[#fafafa] hover:bg-[#f2f2f2] cursor-pointer px-[10px] py-[8px] rounded-[18px] m-[6px]">Giải phương trình</div>
+                        <div class="bg-[#fafafa] hover:bg-[#f2f2f2] cursor-pointer px-[10px] py-[8px] rounded-[18px] m-[6px]">Phương trình</div>
+                        <div class="bg-[#fafafa] hover:bg-[#f2f2f2] cursor-pointer px-[10px] py-[8px] rounded-[18px] m-[6px]">Other</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-[20px] bg-[#16191f] absolute bottom-0 left-0 right-0 border-[#353945] border-t-[1px] text-[#777e90]">
+            <div class="mx-auto max-w-[1092px] w-[100%] flex justify-between items-center contentFooter">
+                <span class="text-[14px] font-light">Copyright © 2022  - <a href="" class="underline">SownVipro</a> & <a href="" class="underline">TCODEDAO</a></span>
+                <span class="textFooterCenter"><span class="font-light">Sản phẩm thuộc</span> NHÓM HỌC SINH LỚP 8A TRƯỜNG THCS AN SINH</span>
+                <span class="flex justify-between socialFooter">
+                    <a href="" class="pr-[8px]"><img class="w-[24px] h-[24px]" src="https://tek4.vn/icons/facebook-footer-icon.svg" alt=""></a>
+                    <a href="" class="px-[8px]"><img class="w-[24px] h-[24px]" src="https://tek4.vn/icons/twitter-footer-icon.svg" alt=""></a>
+                    <a href="" class="px-[8px]"><img class="w-[24px] h-[24px]" src="https://tek4.vn/icons/instagram-footer-icon.svg" alt=""></a>
+                    <a href="" class="px-[8px]"><i class="fa-brands fa-google-plus-g text-[24px]"></i></a>
+                    <a href="" class="pl-[8px]"><i class="fa-brands fa-github text-[24px]"></i></a>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
