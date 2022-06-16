@@ -109,6 +109,15 @@
             .navIcon{
                 display: block;
             }
+            .bodyWrapper{
+                padding: 0 8px;
+            }
+            .suggestedTopic{
+                display: none;
+            }
+            .listPost{
+                width: 100%;
+            }
         }
         @media screen and (min-width: 741px) and (max-width: 1070px){
             .postWriterWrapper{
@@ -149,6 +158,19 @@
                 margin: 0;
                 display: block;
             }
+            .suggestedTopic{
+                display: none;
+            }
+            .listPost{
+                width: 100%;
+            }
+            .itemPostContent{
+                display: block;
+            }
+            .itemPostContent_img{
+                width: 100%;
+                margin-top: 8px;
+            }
         }
         @media screen and (max-width: 320px){
             .avt{
@@ -187,11 +209,12 @@
                 font-size: 12px;
             }
         }
+        
     </style>
 </head>
 <body>
-    <div class="pt-[20px] pb-[80px] bg-[#13161B] mt-[96px] relative min-h-[100vh]">
-        <div class="fixed h-[96px] bg-[#1f232b] top-0 left-0 right-0 z-[999]">
+    <div class="pt-[100px] pb-[80px] bg-[#13161B] relative min-h-[100vh]">
+        <div class="fixed h-[70px] bg-[#1f232b] top-0 left-0 right-0 z-[999]">
             <div class="max-w-[1092px] w-[100%] h-full flex items-center justify-between mx-auto">
                 <a href="" class="flex items-center">
                     <i class="fa-solid fa-atom text-[40px] text-white mr-1 logoIcon"></i>
@@ -292,7 +315,7 @@
                 <p>Tổng hợp các bài viết chia sẻ về kinh nghiệm tự học hóa, cảm xúc trong quá trình học.</p>
             </div>
             <div class="w-full flex"> 
-                <ul class="flex flex-col justify-start w-[60%]">
+                <ul class="flex flex-col justify-start w-[60%] listPost">
                     <li class="my-[8px] w-[100%] rounded-[16px] p-[24px] border-solid border-[#2a2c34] border-[1px] bg-[#1e2029]">
                         <div class="flex justify-between">
                             <div class="flex items-center cursor-pointer">
@@ -301,10 +324,18 @@
                                 </div>
                                 <p class="font-medium hover:text-[#d54253]">Trịnh Văn Sơn</p>
                             </div>
-                            <div>
-                                <i class="cursor-pointer fa-regular fa-bookmark mr-[8px]"></i>
-                                <i class="cursor-pointer fa-solid fa-bookmark mr-[8px] text-[#d54253]" style="display: none;"></i>
-                                <i class="cursor-pointer fa-solid fa-ellipsis"></i>
+                            <div class="flex items-center">
+                                <i class="cursor-pointer fa-regular fa-bookmark mr-[8px] post_Reaction"></i>
+                                <i class="cursor-pointer fa-solid fa-bookmark mr-[8px] text-[#d54253] post_Reaction__active" style="display: none;"></i>
+                                <div class="relative">
+                                    <i class="cursor-pointer fa-solid fa-ellipsis post_More__icon"></i>
+                                    <ul style="top: calc(100% + 4px);" class="px-[12px] py-[10px] absolute rounded-[4px] right-0 bg-[#fafafa] hover:bg-[#f2f2f2] cursor-pointer text-[#333] hidden post_More__list">
+                                        <li class="flex items-center">
+                                            <i class="fa-solid fa-flag mr-[4px]"></i>
+                                            <span class="whitespace-nowrap">Báo cáo bài viết</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="mt-[8px] mb-[16px]">
@@ -327,18 +358,26 @@
                                 </div>
                                 <p class="font-medium hover:text-[#d54253]">Trịnh Văn Sơn</p>
                             </div>
-                            <div>
-                                <i class="cursor-pointer fa-regular fa-bookmark mr-[8px]"></i>
-                                <i class="cursor-pointer fa-solid fa-bookmark mr-[8px] text-[#d54253]" style="display: none;"></i>
-                                <i class="cursor-pointer fa-solid fa-ellipsis"></i>
+                            <div class="flex items-center">
+                                <i class="cursor-pointer fa-regular fa-bookmark mr-[8px] post_Reaction"></i>
+                                <i class="cursor-pointer fa-solid fa-bookmark mr-[8px] text-[#d54253] post_Reaction__active" style="display: none;"></i>
+                                <div class="relative">
+                                    <i class="cursor-pointer fa-solid fa-ellipsis post_More__icon"></i>
+                                    <ul style="top: calc(100% + 4px);" class="px-[12px] py-[10px] absolute rounded-[4px] right-0 bg-[#fafafa] hover:bg-[#f2f2f2] cursor-pointer text-[#333] hidden post_More__list">
+                                        <li class="flex items-center">
+                                            <i class="fa-solid fa-flag mr-[4px]"></i>
+                                            <span class="whitespace-nowrap">Báo cáo bài viết</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <div class="mt-[8px] mb-[16px] flex">
+                        <div class="mt-[8px] mb-[16px] flex itemPostContent">
                             <div class="mr-[24px]">
                                 <p class="text-[20px] font-[700] hover:text-[#d54253] cursor-pointer">Áo Polo F8 Đã Về! Trên Tay Áo Polo F8 Của F8</p>
                                 <p class="mt-[4px] leading-[1.6] text-[15px] font-light">Là thành viên F8, chúng ta luôn mong muốn được "nhận ra" ở mọi nơi. Hãy rinh cho mình áo Polo F8 ngay hôm nay nhé!</p>
                             </div>
-                            <img class="object-cover w-[40%] rounded-[16px] cursor-pointer" src="https://files.fullstack.edu.vn/f8-prod/blog_posts/3590/628db70cc11eb.jpg" alt="">
+                            <img class="itemPostContent_img object-cover w-[40%] rounded-[16px] cursor-pointer" src="https://files.fullstack.edu.vn/f8-prod/blog_posts/3590/628db70cc11eb.jpg" alt="">
                         </div>
                         <div class="flex items-center">
                             <p class="opacity-[0.9]">12 ngày trước</p>
@@ -347,9 +386,9 @@
                         </div>
                     </li>
                 </ul>
-                <div class="ml-[60px] w-[40%]">
-                    <p class="mb-[12px] opacity-[0.9]">CÁC CHỦ ĐỀ ĐƯỢC ĐỀ XUẤT</p>
-                    <div class="flex flex-wrap text-[#333] mx-[-8px]">
+                <div class="ml-[60px] w-[40%] suggestedTopic">
+                    <p class="mb-[12px] opacity-[0.9] m-[6px]">CÁC CHỦ ĐỀ ĐƯỢC ĐỀ XUẤT</p>
+                    <div class="flex flex-wrap text-[#333]">
                         <div class="bg-[#fafafa] hover:bg-[#f2f2f2] cursor-pointer px-[10px] py-[8px] rounded-[18px] m-[6px]">Cân bằng phương trình hóa học</div>
                         <div class="bg-[#fafafa] hover:bg-[#f2f2f2] cursor-pointer px-[10px] py-[8px] rounded-[18px] m-[6px]">Giải phương trình</div>
                         <div class="bg-[#fafafa] hover:bg-[#f2f2f2] cursor-pointer px-[10px] py-[8px] rounded-[18px] m-[6px]">Phương trình</div>
@@ -373,4 +412,5 @@
         </div>
     </div>
 </body>
+<script src="./main.js"></script>
 </html>
